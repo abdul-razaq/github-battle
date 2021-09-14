@@ -11,13 +11,15 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{ test: /\.svg$/, use: "svg-inline-loader" },
-			{ test: /\.css$/, use: ["style-loader", "css-loader"] },
 			{ test: /\.(js)$/, use: "babel-loader" },
+			{ test: /\.css$/, use: ["style-loader", "css-loader"] },
+			{ test: /\.svg$/, use: "svg-inline-loader" },
 		],
 	},
 	plugins: [
-		new HtmlWebpackPlugin({}),
+		new HtmlWebpackPlugin({
+			template: "./src/public/index.html",
+		}),
 		new webpack.EnvironmentPlugin({
 			NODE_ENV: "production",
 		}),
