@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import LanguagesNav from "./LanguagesNav";
+import PopularRepos from "./PopularRepos";
+
 import { fetchPopularRepos } from "../utils/api";
 
 const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
@@ -52,13 +54,12 @@ export default function App() {
 				currentLanguage={currentLanguage}
 				updateLanguage={onLanguageChange}
 			/>
-			{isLoading() && (
-				<p>{`Fetching Popular Repos for ${currentLanguage}...`}</p>
-			)}
-			{error && <p>{error}</p>}
-			{repos[currentLanguage] && (
-				<pre>{JSON.stringify(repos[currentLanguage], null, 2)}</pre>
-			)}
+			<PopularRepos
+				isDataLoading={isLoading}
+				currentLanguage={currentLanguage}
+        repos={repos[currentLanguage]}
+				error={error}
+			/>
 		</div>
 	);
 }
