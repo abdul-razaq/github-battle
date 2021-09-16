@@ -1,0 +1,38 @@
+@mixin nav-link-active {
+	background-color: var(--primary-color);
+	color: var(--color-white);
+	padding: 1rem 2rem;
+	border-radius: 5rem;
+}
+
+// Media Query Manager
+/*
+0 - 600px       		Phone
+600px - 900px   		Tablet-Portrait
+900px - 1200px  		Tablet-Landscape
+[1200px - 1800px]   Laptop/Desktop
+1800px+           		Big Desktop
+*/
+// Media query max-width values are not affected by the root font size we set, it defaults to the user-agent (browser)'s root font-size (16px). so we use ems instead of rems to specify the media-queries.
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone {
+		@media only screen and (max-width: 37.5em) {
+			@content;
+		}
+	}
+	@if $breakpoint == tab-port {
+		@media only screen and (max-width: 56.25em) {
+			@content;
+		}
+	}
+	@if $breakpoint == tab-land {
+		@media only screen and (max-width: 75em) {
+			@content;
+		}
+	}
+	@if $breakpoint == big-screen {
+		@media only screen and (min-width: 112.5em) {
+			@content;
+		}
+	}
+}

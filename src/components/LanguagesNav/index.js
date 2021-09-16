@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./LanguagesNav.css";
+import "./LanguagesNav.scss";
 
 export default function LanguagesNav({
 	updateLanguage,
