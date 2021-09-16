@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import "./LanguagesNav.scss";
+import "./index.scss";
 
 export default function LanguagesNav({
 	updateLanguage,
@@ -29,3 +30,9 @@ export default function LanguagesNav({
 		</ul>
 	);
 }
+
+LanguagesNav.propTypes = {
+	languages: PropTypes.arrayOf(PropTypes.string).isRequired,
+	currentLanguage: PropTypes.string.isRequired,
+	updateLanguage: PropTypes.func.isRequired,
+};
