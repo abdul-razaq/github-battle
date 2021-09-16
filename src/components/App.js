@@ -5,7 +5,7 @@ import PopularRepos from "./PopularRepos";
 
 import { fetchPopularRepos } from "../utils/api";
 
-const languages = ["All", "JavaScript", "Ruby", "Java", "CSS", "Python"];
+const languages = ["All", "JavaScript", "Ruby", "Go", "CSS", "Python"];
 
 export default function App() {
 	const [currentLanguage, setCurrentLanguage] = useState(languages[0]);
@@ -47,6 +47,7 @@ export default function App() {
 	function isLoading() {
 		return !error && !repos[currentLanguage];
 	}
+  
 	return (
 		<div>
 			<LanguagesNav
@@ -57,7 +58,7 @@ export default function App() {
 			<PopularRepos
 				isDataLoading={isLoading}
 				currentLanguage={currentLanguage}
-        repos={repos[currentLanguage]}
+				repos={repos[currentLanguage] && repos[currentLanguage].items}
 				error={error}
 			/>
 		</div>
