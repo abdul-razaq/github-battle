@@ -1,3 +1,5 @@
+@import "../../scss/_mixins.scss";
+
 .card {
 	background-color: var(--light-background);
 	border-radius: 1rem;
@@ -14,7 +16,7 @@
 		width: 25rem;
 		overflow: hidden;
 		border-radius: 1rem;
-		margin: 3rem 0;
+		margin: 3rem auto;
 
 		& > img {
 			height: 100%;
@@ -57,5 +59,10 @@
         color: var(--primary-color);
       }
     }
+	}
+
+	@include respond(phone) {
+		width: 80%;
+		margin: 2rem auto;
 	}
 }

@@ -21,6 +21,13 @@
 		color: inherit;
 		cursor: pointer;
 	}
+
+	@include respond(phone) {
+		margin-bottom: -6rem;
+		&__item {
+			padding: 1rem 1.5rem;
+		}
+	}
 }
 
 .current {
