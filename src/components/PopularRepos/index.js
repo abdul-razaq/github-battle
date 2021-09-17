@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import "./index.scss";
 
-import Repo from "../Repo";
+import Repo from "../UI/Repo";
 
 export default function PopularRepos({
 	isDataLoading,

@@ -31,25 +31,25 @@ export default function Repo({
 			</p>
 			<ul className="card__details">
 				<li className="card__detail">
-					<FaUser size={25} color="rgb(255, 191, 116)" />
+					<FaUser size={20} color="rgb(255, 191, 116)" />
 					<p>
 						<a href={html}>{login.toLocaleString()}</a>
 					</p>
 				</li>
 				<li className="card__detail">
-					<FaStar size={25} color="rgb(255, 215, 0)" />
+					<FaStar size={20} color="rgb(255, 215, 0)" />
 					<p>
 						<span>{stars.toLocaleString()}</span> stars
 					</p>
 				</li>
 				<li className="card__detail">
-					<FaCodeBranch size={25} color="rgb(129, 195, 245)" />
+					<FaCodeBranch size={20} color="rgb(129, 195, 245)" />
 					<p>
 						<span>{forks.toLocaleString()}</span> forks
 					</p>
 				</li>
 				<li className="card__detail">
-					<FaExclamationTriangle size={25} color="rgb(241, 138, 147)" />
+					<FaExclamationTriangle size={20} color="rgb(241, 138, 147)" />
 					<p>
 						<span>{issues.toLocaleString()}</span> open issues
 					</p>

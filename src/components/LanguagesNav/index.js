@@ -17,7 +17,9 @@ export default function LanguagesNav({
 			{languages.map(language => (
 				<li
 					key={language}
-					className={`nav__item ${language === currentLanguage && "current"}`}
+					className={`nav__item ${
+						language === currentLanguage ? "current" : ""
+					}`}
 				>
 					<a
 						className="nav__link"
