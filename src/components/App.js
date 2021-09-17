@@ -4,7 +4,7 @@ import PopularScreen from "../screens/Popular";
 import BattleScreen from "../screens/Battle";
 
 export default function App() {
-	const currentScreen = "popular";
+	const currentScreen = "battle";
 	let content = <PopularScreen />;
 
 	if (currentScreen === "battle") {

@@ -4,7 +4,7 @@
 	background-color: var(--light-background);
 	border-radius: 1rem;
 	padding: 3rem;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+	box-shadow: var(--box-shadow-light);
 	cursor: pointer;
 
 	&__id {

@@ -1,0 +1,32 @@
+@import "../../scss/_mixins.scss";
+
+.instructions {
+	max-width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 10rem;
+
+	& > h1 {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-bottom: 5rem;
+	}
+
+	&__cards {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	@include respond(tab-port) {
+		&__cards {
+			flex-direction: column;
+			justify-content: center;
+      align-items: center;
+
+      & > *:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+		}
+	}
+}
