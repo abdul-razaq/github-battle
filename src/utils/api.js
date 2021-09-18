@@ -14,3 +14,17 @@ export async function fetchPopularRepos(language) {
 		throw error;
 	}
 }
+
+/**
+ * fetch a particular github user's details
+ * @param {string} username user's github username
+ * @returns object of user details
+ */
+export async function fetchUser(username) {
+	const endpoint = `https://api.github.com/users/${username}`;
+	const user = await (await fetch(endpoint)).json();
+	if (!user) {
+		throw new Error("user does not exist");
+	}
+	return user;
+}

@@ -4,10 +4,20 @@ import "./index.scss";
 
 import Instructions from "../../components/Instructions";
 import PlayerInput from "../../components/PlayerInput";
+import PlayerPreview from "../../components/PlayerPreview";
 
 export default function BattleScreen() {
-	const [playerOne, setPlayerOne] = useState(true);
-	const [playerTwo, setPlayerTwo] = useState(true);
+	const [playerOne, setPlayerOne] = useState("");
+	const [playerTwo, setPlayerTwo] = useState("");
+
+	function handlePreviewClose(event, id) {
+		event.stopPropagation();
+		if (id === "player-one") {
+			setPlayerOne("");
+		} else {
+			setPlayerTwo("");
+		}
+	}
 
 	return (
 		<div>
@@ -15,13 +25,26 @@ export default function BattleScreen() {
 			<div className="battle">
 				<h1 className="heading-big center-text">Players</h1>
 				<div className="players">
-					{playerOne && (
+					{playerOne ? (
+						<PlayerPreview
+							title="Player One"
+							player={playerOne}
+							onPreviewClose={event => handlePreviewClose(event, "player-one")}
+						/>
+					) : (
 						<PlayerInput
 							label="Player One"
 							onSubmit={playerInput => setPlayerOne(playerInput)}
 						/>
 					)}
-					{playerTwo && (
+
+					{playerTwo ? (
+						<PlayerPreview
+							title="Player Two"
+							player={playerTwo}
+							onPreviewClose={event => handlePreviewClose(event, "player-two")}
+						/>
+					) : (
 						<PlayerInput
 							label="Player Two"
 							onSubmit={playerInput => setPlayerTwo(playerInput)}
