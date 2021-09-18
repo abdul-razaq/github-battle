@@ -18,6 +18,7 @@
 	letter-spacing: 1px;
 	cursor: pointer;
 	border-radius: 1rem;
+	transition: all 0.4s ease-out;
 
 	&--primary {
 		background-color: var(--primary-color);
