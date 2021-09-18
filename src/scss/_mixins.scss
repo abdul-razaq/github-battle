@@ -1,3 +1,5 @@
+@import "_utils";
+
 @mixin nav-link-active {
 	background-color: var(--primary-color);
 	color: var(--color-white);

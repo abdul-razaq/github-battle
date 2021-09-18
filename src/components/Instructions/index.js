@@ -8,7 +8,7 @@ import IconCard from "../UI/IconCard";
 export default function Instructions() {
 	return (
 		<div className="instructions">
-			<h1>Instructions</h1>
+			<h1 className="heading-big">Instructions</h1>
 			<div className="instructions__cards">
 				<IconCard
 					title="Enter two Github users"

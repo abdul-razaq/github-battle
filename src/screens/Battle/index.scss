@@ -1,0 +1,25 @@
+@import "../../scss/_mixins";
+
+.battle {
+  max-width: 90%;
+  margin: 0 auto;
+  
+  .players {
+    display: flex;
+    justify-content: space-between;
+
+    & > * {
+      margin-bottom: 4rem;
+    }
+
+    // @include respond(tab-port) {
+    //   flex-direction: column;
+    //   align-items: center;
+    // }
+
+    @include respond(tab-port) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@import "../../scss/_mixins";
+
+.player {
+	&__label {
+		display: inline-block;
+		font-size: 3.5rem;
+		margin-bottom: 1.5rem;
+		margin-left: 2rem;
+	}
+
+	&__input {
+		display: flex;
+		align-items: center;
+
+		@include respond(phone) {
+			flex-wrap: wrap;
+
+			& input {
+				margin-bottom: 2rem;
+			}
+		}
+
+		& > input {
+			padding: 2rem 2rem;
+			margin-right: 2rem;
+			color: inherit;
+			font-size: 2rem;
+			width: 45rem;
+			border-radius: 1rem;
+			letter-spacing: 0.3px;
+			box-shadow: var(--box-shadow-light);
+
+			&::-webkit-input-placeholder {
+				font-family: inherit;
+				color: inherit;
+				font-size: 1.6rem;
+				font-weight: 200;
+
+				@include respond(phone) {
+					font-size: 2.2rem;
+				}
+			}
+
+			&::selection {
+				background-color: var(--primary-color);
+				color: var(--color-white);
+			}
+		}
+	}
+}

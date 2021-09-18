@@ -5,13 +5,7 @@
 	margin: 0 auto;
 	text-align: center;
 	padding: 10rem;
-
-	& > h1 {
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		margin-bottom: 5rem;
-	}
-
+	
 	&__cards {
 		display: flex;
 		align-items: center;

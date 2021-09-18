@@ -1,3 +1,30 @@
 .center-text {
 	text-align: center;
 }
+
+.heading-big {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 5rem;
+	font-weight: 400;
+}
+
+.btn {
+	padding: 2rem 3rem;
+	color: var(--color-white);
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 1.5rem;
+	letter-spacing: 1px;
+	cursor: pointer;
+	border-radius: 1rem;
+
+	&--primary {
+		background-color: var(--primary-color);
+	}
+
+	&:disabled {
+		background-color: #ddd;
+		cursor: not-allowed;
+	}
+}
