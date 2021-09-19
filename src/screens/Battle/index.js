@@ -6,7 +6,7 @@ import Instructions from "../../components/Instructions";
 import PlayerInput from "../../components/PlayerInput";
 import PlayerPreview from "../../components/PlayerPreview";
 
-export default function BattleScreen() {
+export default function BattleScreen({ onBattle }) {
 	const [playerOne, setPlayerOne] = useState("");
 	const [playerTwo, setPlayerTwo] = useState("");
 
@@ -17,6 +17,10 @@ export default function BattleScreen() {
 		} else {
 			setPlayerTwo("");
 		}
+	}
+
+	function handleBattle() {
+		onBattle(playerOne, playerTwo);
 	}
 
 	return (
@@ -51,6 +55,13 @@ export default function BattleScreen() {
 						/>
 					)}
 				</div>
+				{playerOne && playerTwo && (
+					<div className="battle__btn">
+						<button className="btn btn--secondary" onClick={handleBattle}>
+							Battle!
+						</button>
+					</div>
+				)}
 			</div>
 		</div>
 	);

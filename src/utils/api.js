@@ -23,8 +23,59 @@ export async function fetchPopularRepos(language) {
 export async function fetchUser(username) {
 	const endpoint = `https://api.github.com/users/${username}`;
 	const user = await (await fetch(endpoint)).json();
-	if (!user) {
-		throw new Error("user does not exist");
+	if (user.message) {
+		throw new Error(getErrorMessage(user.message, username));
 	}
 	return user;
+}
+
+async function fetchUserRepos(username) {
+	const endpoint = `https://api.github.com/users/${username}/repos?per_page=100`;
+	const repos = await(await fetch(endpoint)).json();
+
+	if (repos.message) {
+		throw new Error(getErrorMessage(repos.message, username));
+	}
+	return repos;
+}
+
+async function getUserData(player) {
+	const [profile, repos] = await Promise.all([
+		fetchUser(player),
+		fetchUserRepos(player),
+	]);
+	return {
+		profile,
+		score: calculateScore(profile.followers, repos),
+	};
+}
+
+export async function battle(players) {
+	const results = await Promise.all([
+		getUserData(players[0]),
+		getUserData(players[1]),
+	]);
+	return sortPlayers(results);
+}
+
+function sortPlayers(players) {
+	return players.sort((a, b) => b.score - a.score);
+}
+
+function getStarCount(repos) {
+	return repos.reduce(
+		(count, { stargazers_count }) => count + stargazers_count,
+		0
+	);
+}
+
+function calculateScore(followers, repos) {
+	return followers * 3 + getStarCount(repos);
+}
+
+function getErrorMessage(message, username) {
+	if (message === "NOT FOUND") {
+		return `user with username of ${username} does not exist.`;
+	}
+	return message;
 }

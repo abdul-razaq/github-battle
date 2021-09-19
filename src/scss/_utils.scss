@@ -24,6 +24,11 @@
 		background-color: var(--primary-color);
 	}
 
+	&--secondary {
+		background-color: rgb(8, 8, 8);
+		color: var(--color-white);
+	}
+
 	&:disabled {
 		background-color: #ddd;
 		cursor: not-allowed;
