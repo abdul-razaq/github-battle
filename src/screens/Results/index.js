@@ -5,6 +5,8 @@ import { battle } from "../../utils/api";
 
 import "./index.scss";
 
+import Player from "../../components/UI/Player";
+
 export default function ResultsScreen({ playerOne, playerTwo }) {
 	const [players, setPlayers] = useState([]);
 	const [error, setError] = useState("");
@@ -25,12 +27,15 @@ export default function ResultsScreen({ playerOne, playerTwo }) {
 			});
 	}, [playerOne, playerTwo]);
 
+	if (loading) return <p>Loading...</p>;
+
 	return (
 		<div className="results">
 			{error && <p>{error}</p>}
-			{loading && <p>Loading...</p>}
-			<pre>{JSON.stringify({ playerOne, playerTwo }, null, 2)}</pre>
-			<pre>{JSON.stringify(players, null, 2)}</pre>
+			<div className="users">
+				<Player player={players[0]} title="Winner" />
+				<Player player={players[1]} title="Loser" />
+			</div>
 		</div>
 	);
 }

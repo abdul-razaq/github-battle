@@ -5,7 +5,7 @@ import BattleScreen from "../screens/Battle";
 import ResultsScreen from "../screens/Results";
 
 export default function App() {
-	const [currentScreen, setCurrentScreen] = useState("instructions");
+	const [currentScreen, setCurrentScreen] = useState("popular");
 	const [playerOne, setPlayerOne] = useState("");
 	const [playerTwo, setPlayerTwo] = useState("");
 

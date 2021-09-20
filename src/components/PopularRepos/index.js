@@ -34,7 +34,6 @@ export default function PopularRepos({
 							<Repo
 								key={html_url}
 								id={index + 1}
-								name={name}
 								login={login}
 								avatar={avatar_url}
 								html={html_url}
