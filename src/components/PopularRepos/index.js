@@ -1,9 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import "./index.scss";
+import './index.scss';
 
-import Repo from "../UI/Repo";
+import Repo from '../UI/Repo';
+import Loading from '../UI/Loading';
 
 export default function PopularRepos({
 	isDataLoading,
@@ -14,7 +15,13 @@ export default function PopularRepos({
 	return (
 		<>
 			{isDataLoading() && (
-				<p className="center-text">{`Fetching Popular Repos for ${currentLanguage}...`}</p>
+				<p className="center-text">
+					{
+						<Loading
+							text={`Fetching Popular Repos for ${currentLanguage}...`}
+						/>
+					}
+				</p>
 			)}
 			{error && <p className="center-text">{error}</p>}
 			<div className="repos">
@@ -29,7 +36,7 @@ export default function PopularRepos({
 								forks,
 								open_issues,
 							},
-							index
+							index,
 						) => (
 							<Repo
 								key={html_url}
@@ -41,7 +48,7 @@ export default function PopularRepos({
 								forks={forks}
 								issues={open_issues}
 							/>
-						)
+						),
 					)}
 			</div>
 		</>

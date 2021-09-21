@@ -31,9 +31,16 @@ export default function ResultsScreen({ playerOne, playerTwo, onResetPlayer }) {
 
 	if (loading) return <Loading />;
 
+	if (error)
+		return (
+			<div>
+				<p>{error}</p>
+				<Button onClick={() => setError('')}>Try Again!</Button>
+			</div>
+		);
+
 	return (
 		<div className="results">
-			{error && <p>{error}</p>}
 			<div className="users">
 				<Player
 					player={players[0]}
