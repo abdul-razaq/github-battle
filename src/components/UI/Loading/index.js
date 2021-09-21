@@ -7,11 +7,9 @@ export default function Loading() {
 
 	useEffect(() => {
 		const timeout = setTimeout(() => {
-			if (loadingText === 'Loading...') {
-				setLoadingText('Loading');
-			} else {
-				setLoadingText(loadingText => loadingText + '.');
-			}
+			loadingText === 'Loading...'
+				? setLoadingText('Loading')
+				: setLoadingText(loadingText => loadingText + '.');
 		}, 300);
 		return () => clearTimeout(timeout);
 	}, [loadingText]);
