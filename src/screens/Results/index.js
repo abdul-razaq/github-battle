@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-import { battle } from "../../utils/api";
+import { battle } from '../../utils/api';
 
-import "./index.scss";
+import './index.scss';
 
-import Player from "../../components/UI/Player";
+import Player from '../../components/UI/Player';
+import Button from '../../components/UI/Button';
+import Loading from '../../components/UI/Loading';
 
 export default function ResultsScreen({ playerOne, playerTwo, onResetPlayer }) {
 	const [players, setPlayers] = useState([]);
-	const [error, setError] = useState("");
+	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		setError("");
+		setError('');
 		battle([playerOne, playerTwo])
 			.then(results => {
 				setPlayers(results);
@@ -27,7 +29,7 @@ export default function ResultsScreen({ playerOne, playerTwo, onResetPlayer }) {
 			});
 	}, [playerOne, playerTwo]);
 
-	if (loading) return <p>Loading...</p>;
+	if (loading) return <Loading />;
 
 	return (
 		<div className="results">
@@ -35,11 +37,11 @@ export default function ResultsScreen({ playerOne, playerTwo, onResetPlayer }) {
 			<div className="users">
 				<Player
 					player={players[0]}
-					title={players[0].score === players[1].score ? "Tie" : "Winner"}
+					title={players[0].score === players[1].score ? 'Tie' : 'Winner'}
 				/>
 				<Player
 					player={players[1]}
-					title={players[0].score === players[1].score ? "Tie" : "Loser"}
+					title={players[0].score === players[1].score ? 'Tie' : 'Loser'}
 				/>
 			</div>
 			<Button onClick={onResetPlayer}>Reset Player</Button>
@@ -50,5 +52,5 @@ export default function ResultsScreen({ playerOne, playerTwo, onResetPlayer }) {
 ResultsScreen.propTypes = {
 	playerOne: PropTypes.string.isRequired,
 	playerTwo: PropTypes.string.isRequired,
-	onResetPlayer: PropTypes.func.isRequired
+	onResetPlayer: PropTypes.func.isRequired,
 };
