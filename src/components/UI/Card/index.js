@@ -17,7 +17,9 @@ export default function Card({
 			<div className="card__img">
 				<img src={avatar} alt={`Avatar for ${loginName}`} />
 			</div>
-			{score && <h4 className="center-text">Score: {score}</h4>}
+			{score && (
+				<h4 className="center-text">{`Score: ${score.toLocaleString()}`}</h4>
+			)}
 			<p className="card__title center-text">
 				<a href={url}>{loginName.toLocaleString()}</a>
 			</p>

@@ -5,11 +5,9 @@ import BattleScreen from "../screens/Battle";
 import ResultsScreen from "../screens/Results";
 
 export default function App() {
-	const [currentScreen, setCurrentScreen] = useState("popular");
+	const [currentScreen, setCurrentScreen] = useState("instructions");
 	const [playerOne, setPlayerOne] = useState("");
 	const [playerTwo, setPlayerTwo] = useState("");
-
-	let content = <PopularScreen />;
 
 	function handleBattle(playerOne, playerTwo) {
 		setCurrentScreen("battle");
@@ -17,8 +15,20 @@ export default function App() {
 		setPlayerTwo(playerTwo);
 	}
 
+	function handleResetPlayer() {
+		setCurrentScreen("battle");
+	}
+
+	let content = <PopularScreen />;
+
 	if (currentScreen === "battle") {
-		content = <ResultsScreen playerOne={playerOne} playerTwo={playerTwo} />;
+		content = (
+			<ResultsScreen
+				playerOne={playerOne}
+				playerTwo={playerTwo}
+				onResetPlayer={handleResetPlayer}
+			/>
+		);
 	} else if (currentScreen === "popular") {
 		content = <PopularScreen />;
 	} else {

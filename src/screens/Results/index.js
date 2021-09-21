@@ -7,7 +7,7 @@ import "./index.scss";
 
 import Player from "../../components/UI/Player";
 
-export default function ResultsScreen({ playerOne, playerTwo }) {
+export default function ResultsScreen({ playerOne, playerTwo, onResetPlayer }) {
 	const [players, setPlayers] = useState([]);
 	const [error, setError] = useState("");
 	const [loading, setLoading] = useState(true);
@@ -33,9 +33,16 @@ export default function ResultsScreen({ playerOne, playerTwo }) {
 		<div className="results">
 			{error && <p>{error}</p>}
 			<div className="users">
-				<Player player={players[0]} title="Winner" />
-				<Player player={players[1]} title="Loser" />
+				<Player
+					player={players[0]}
+					title={players[0].score === players[1].score ? "Tie" : "Winner"}
+				/>
+				<Player
+					player={players[1]}
+					title={players[0].score === players[1].score ? "Tie" : "Loser"}
+				/>
 			</div>
+			<Button onClick={onResetPlayer}>Reset Player</Button>
 		</div>
 	);
 }
@@ -43,4 +50,5 @@ export default function ResultsScreen({ playerOne, playerTwo }) {
 ResultsScreen.propTypes = {
 	playerOne: PropTypes.string.isRequired,
 	playerTwo: PropTypes.string.isRequired,
+	onResetPlayer: PropTypes.func.isRequired
 };
