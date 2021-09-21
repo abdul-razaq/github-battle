@@ -5,16 +5,14 @@ const styles = {
 	loadingContainer: {
 		width: '100%',
 		height: '100%',
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center',
-		justifyContent: 'center',
+		position: 'relative',
 	},
 
 	loadingText: {
 		fontSize: '2rem',
 		fontWeight: 400,
 		color: '#777',
+		marginTop: '50rem 0',
 	},
 };
 
