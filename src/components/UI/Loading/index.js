@@ -12,7 +12,7 @@ export default function Loading() {
 			} else {
 				setLoadingText(loadingText => loadingText + '.');
 			}
-		}, 500);
+		}, 300);
 		return () => clearTimeout(timeout);
 	}, [loadingText]);
 
