@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const styles = {
@@ -23,10 +23,25 @@ const styles = {
 	},
 };
 
-export default function Tooltip({ content }) {
+export default function Tooltip({ content, children }) {
+	const [showTooltip, setShowTooltip] = useState(false);
+
+	function handleMouseOver() {
+		setShowTooltip(true);
+	}
+
+	function handleMouseOut() {
+		setShowTooltip(false);
+	}
+
 	return (
-		<div style={styles.container}>
-			<p style={styles.tooltip}>{content}</p>
+		<div
+			style={styles.container}
+			onMouseOver={handleMouseOver}
+			onMouseOut={handleMouseOut}
+		>
+			{showTooltip && <div style={styles.tooltip}>{content}</div>}
+			{children}
 		</div>
 	);
 }

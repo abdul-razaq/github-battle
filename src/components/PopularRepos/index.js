@@ -18,7 +18,7 @@ export default function PopularRepos({
 				<p className="center-text">
 					{
 						<Loading
-							text={`Fetching Popular Repos for ${currentLanguage}...`}
+							text={`Fetching Popular Repos for ${currentLanguage}`}
 						/>
 					}
 				</p>

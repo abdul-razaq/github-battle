@@ -15,9 +15,6 @@ import Card from '../../UI/Card';
 import Tooltip from '../../UI/Tooltip';
 
 export default function Player({ player, title }) {
-	const [showLocationTooltip, setShowLocationTooltip] = useState(false);
-	const [showCompanyTooltip, setShowCompanyTooltip] = useState(false);
-
 	return (
 		<Card
 			url={player.profile.html_url}
@@ -30,31 +27,25 @@ export default function Player({ player, title }) {
 				<FaUser size={20} color="rgb(255, 191, 116)" />
 				<p>{player.profile.name}</p>
 			</li>
-			{showLocationTooltip && <Tooltip content="User's Location" />}
 			{player.profile.location && (
-				<li
-					className="card__detail"
-					onMouseEnter={() => setShowLocationTooltip(true)}
-					onMouseLeave={() => setShowLocationTooltip(false)}
-				>
-					<FaCompass size={20} color="rgb(144, 115, 255)" />
-					<p>
-						<span>{player.profile.location}</span>
-					</p>
-				</li>
+				<Tooltip content="User's Location">
+					<li className="card__detail">
+						<FaCompass size={20} color="rgb(144, 115, 255)" />
+						<p>
+							<span>{player.profile.location}</span>
+						</p>
+					</li>
+				</Tooltip>
 			)}
-			{showCompanyTooltip && <Tooltip content="User's Company" />}
 			{player.profile.company && (
-				<li
-					className="card__detail"
-					onMouseEnter={() => setShowCompanyTooltip(true)}
-					onMouseLeave={() => setShowCompanyTooltip(false)}
-				>
-					<FaBriefcase size={20} color="#795548" />
-					<p>
-						<span>{player.profile.company}</span>
-					</p>
-				</li>
+				<Tooltip content="User's Company">
+					<li className="card__detail">
+						<FaBriefcase size={20} color="#795548" />
+						<p>
+							<span>{player.profile.company}</span>
+						</p>
+					</li>
+				</Tooltip>
 			)}
 			<li className="card__detail">
 				<FaUsers size={20} color="rgb(129, 195, 245)" />

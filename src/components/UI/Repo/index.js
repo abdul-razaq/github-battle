@@ -1,16 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
 	FaUser,
 	FaStar,
 	FaCodeBranch,
 	FaExclamationTriangle,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
-import "./index.scss";
+import './index.scss';
 
-import Card from "../../UI/Card";
+import Card from '../../UI/Card';
+
+import Tooltip from '../../UI/Tooltip';
 
 export default function Repo({
 	id,
@@ -23,12 +25,14 @@ export default function Repo({
 }) {
 	return (
 		<Card url={html} title={`#${id}`} avatar={avatar} loginName={login}>
-			<li className="card__detail">
-				<FaUser size={20} color="rgb(255, 191, 116)" />
-				<p>
-					<a href={html}>{login.toLocaleString()}</a>
-				</p>
-			</li>
+			<Tooltip content="Github User">
+				<li className="card__detail">
+					<FaUser size={20} color="rgb(255, 191, 116)" />
+					<p>
+						<a href={html}>{login.toLocaleString()}</a>
+					</p>
+				</li>
+			</Tooltip>
 			<li className="card__detail">
 				<FaStar size={20} color="rgb(255, 215, 0)" />
 				<p>
