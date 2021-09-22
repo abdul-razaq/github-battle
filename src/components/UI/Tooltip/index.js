@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import withHover from "../../HOC/withHover.js";
+// import withHover from "../../HOC/withHover.js";
+import Hover from '../../HOC/Hover';
 
 const styles = {
 	container: {
@@ -25,12 +26,16 @@ const styles = {
 	},
 };
 
-function Tooltip({ content, children, hovering }) {
+function Tooltip({ content, children }) {
 	return (
-		<div style={styles.container}>
-			{hovering && <p style={styles.tooltip}>{content}</p>}
-			{children}
-		</div>
+		<Hover>
+			{hovering => (
+				<div style={styles.container}>
+					{hovering && <p style={styles.tooltip}>{content}</p>}
+					{children}
+				</div>
+			)}
+		</Hover>
 	);
 }
 
