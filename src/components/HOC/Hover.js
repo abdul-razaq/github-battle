@@ -13,7 +13,7 @@ export default function Hover(props) {
 
 	return (
 		<div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-			{props.children.call(null, hovering)}
+			{props.children(hovering)}
 		</div>
 	);
 }

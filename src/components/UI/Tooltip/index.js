@@ -41,7 +41,7 @@ function Tooltip({ content, children }) {
 
 Tooltip.propTypes = {
 	content: PropTypes.string.isRequired,
-	hovering: PropTypes.bool.isRequired,
+	// hovering: PropTypes.bool.isRequired,
 };
 
-export default withHover(Tooltip);
+export default Tooltip;
