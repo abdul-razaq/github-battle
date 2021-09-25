@@ -3,11 +3,19 @@ import React, { useState } from 'react';
 import PopularScreen from '../screens/Popular';
 import BattleScreen from '../screens/Battle';
 import ResultsScreen from '../screens/Results';
+import NavBar from '../components/NavBar';
+
+import ThemeContext from '../contexts/theme';
 
 export default function App() {
 	const [currentScreen, setCurrentScreen] = useState('instructions');
 	const [playerOne, setPlayerOne] = useState('');
 	const [playerTwo, setPlayerTwo] = useState('');
+	const [theme, setTheme] = useState('light');
+
+	function toggleTheme() {
+		setTheme(theme => (theme === 'light' ? 'dark' : 'light'));
+	}
 
 	function handleBattle(playerOne, playerTwo) {
 		setCurrentScreen('results');
@@ -35,5 +43,17 @@ export default function App() {
 		content = <BattleScreen onBattle={handleBattle} />;
 	}
 
-	return <>{content}</>;
+	return (
+		<div className={`${theme}`}>
+			<ThemeContext.Provider
+				value={{
+					theme,
+					toggleTheme,
+				}}
+			>
+				<NavBar />
+				{content}
+			</ThemeContext.Provider>
+		</div>
+	);
 }

@@ -1,7 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 
-import "./index.scss";
+import ThemeContext from '../../../contexts/theme';
+
+import './index.scss';
 
 export default function Card({
 	url,
@@ -11,8 +13,10 @@ export default function Card({
 	score,
 	children,
 }) {
+	const { theme } = useContext(ThemeContext);
+
 	return (
-		<figure className="card" onClick={() => window.open(url)}>
+		<figure className={`card card--${theme}`} onClick={() => window.open(url)}>
 			<h2 className="card__title center-text">{title}</h2>
 			<div className="card__img">
 				<img src={avatar} alt={`Avatar for ${loginName}`} />

@@ -1,11 +1,18 @@
 @import "../../../scss/_mixins.scss";
 
 .card {
-	background-color: var(--light-background);
 	border-radius: 1rem;
 	padding: 3rem;
 	box-shadow: var(--box-shadow-light);
 	cursor: pointer;
+
+	&--light {
+		background-color: var(--light-background);
+	}
+
+	&--dark {
+		background-color: var(--dark-background-secondary);
+	}
 
 	&__id {
 		font-size: 3rem;

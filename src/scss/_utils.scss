@@ -29,6 +29,14 @@
 		color: var(--color-white);
 	}
 
+	&--light {
+
+	}
+
+	&--dark {
+		
+	}
+
 	&:disabled {
 		background-color: #ddd;
 		cursor: not-allowed;

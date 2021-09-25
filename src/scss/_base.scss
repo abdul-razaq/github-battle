@@ -1,4 +1,4 @@
-@import "./_mixins";
+@import './_mixins';
 
 *,
 *::before,
@@ -16,8 +16,11 @@
 :root {
 	--primary-color: #bb2e1f;
 	--color-white: #fff;
-	--text-color: #777;
+	--text-color-light: #777;
+	--text-color-dark: #dadada;
 	--light-background: #e4e4e4;
+	--dark-background-primary: #1c2022;
+	--dark-background-secondary: #24282a;
 	--box-shadow-light: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -43,8 +46,26 @@ html {
 
 body {
 	font-size: 1.8rem;
-	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-	color: var(--text-color);
-	width: 100%;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 	height: 100%;
+	width: 100%;
+	background-color: orangered;
+}
+
+#app {
+	height: 100%;
+}
+
+.light {
+	color: var(--text-color-light);
+	background-color: #fff;
+	min-height: 100%;
+	min-width: 100%;
+}
+
+.dark {
+	color: var(--text-color-dark);
+	background-color: var(--dark-background-primary);
+	min-height: 100%;
+	min-width: 100%;
 }

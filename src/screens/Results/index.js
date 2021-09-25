@@ -13,9 +13,12 @@ export default function ResultsScreen({ playerOne, playerTwo, onResetPlayer }) {
 	const [players, setPlayers] = useState([]);
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(true);
+	const [reload, setReload] = useState(false);
 
 	useEffect(() => {
 		setError('');
+		setLoading(true);
+
 		battle([playerOne, playerTwo])
 			.then(results => {
 				setPlayers(results);
@@ -27,7 +30,7 @@ export default function ResultsScreen({ playerOne, playerTwo, onResetPlayer }) {
 			.finally(() => {
 				setLoading(false);
 			});
-	}, [playerOne, playerTwo]);
+	}, [playerOne, playerTwo, reload]);
 
 	if (loading) return <Loading />;
 
@@ -35,7 +38,7 @@ export default function ResultsScreen({ playerOne, playerTwo, onResetPlayer }) {
 		return (
 			<div>
 				<p>{error}</p>
-				<Button onClick={() => setError('')}>Try Again!</Button>
+				<Button onClick={() => setReload(r => !r)}>Try Again!</Button>
 			</div>
 		);
 
