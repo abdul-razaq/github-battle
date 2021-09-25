@@ -11,7 +11,15 @@
 
 	&__input {
 		display: flex;
-		align-items: center;
+		align-items: stretch;
+
+		&--light {
+			background-color: var(--light-background);
+		}
+
+		&--dark {
+			background-color: rgba(0, 0, 0, .3);
+		}
 
 		@include respond(phone) {
 			flex-wrap: wrap;

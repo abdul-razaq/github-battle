@@ -24,21 +24,31 @@
 		background-color: var(--primary-color);
 	}
 
+	&--light {
+		background-color: var(--light-background);
+	}
+
 	&--secondary {
 		background-color: rgb(8, 8, 8);
 		color: var(--color-white);
 	}
 
-	&--light {
-
-	}
-
 	&--dark {
-		
+		color: #fff;
+		background-image: linear-gradient(90deg, purple, orangered);
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 
-	&:disabled {
+	&--light:disabled {
 		background-color: #ddd;
 		cursor: not-allowed;
+	}
+
+	&--dark:disabled {
+		background-image: none;
+		background-color: var(--dark-background-secondary);
+		cursor: not-allowed;
+		transition: all .4s ease-out;
 	}
 }

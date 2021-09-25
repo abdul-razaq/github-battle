@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar';
 import ThemeContext from '../contexts/theme';
 
 export default function App() {
-	const [currentScreen, setCurrentScreen] = useState('instructions');
+	const [currentScreen, setCurrentScreen] = useState('popular');
 	const [playerOne, setPlayerOne] = useState('');
 	const [playerTwo, setPlayerTwo] = useState('');
 	const [theme, setTheme] = useState('light');

@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from 'react';
 
-import "./index.scss";
+import ThemeContext from '../../contexts/theme';
 
-import Avatar from "../UI/Avatar";
-import CloseButton from "../UI/CloseButton";
+import './index.scss';
 
-import { fetchUser } from "../../utils/api";
+import Avatar from '../UI/Avatar';
+import CloseButton from '../UI/CloseButton';
+
+import { fetchUser } from '../../utils/api';
 
 export default function PlayerPreview({ title, player, onPreviewClose }) {
 	const [user, setUser] = useState({});
+	const { theme } = useContext(ThemeContext);
 
 	useEffect(() => {
 		fetchUser(player)
@@ -22,12 +25,14 @@ export default function PlayerPreview({ title, player, onPreviewClose }) {
 		<div className="player preview">
 			<h1 className="player__label">{title}</h1>
 			<div
-				className="card preview__card"
+				className={`card card--${theme} preview__card`}
 				onClick={() => window.open(user.html_url)}
 			>
 				<Avatar imageURL={user.avatar_url} title={title} />
 				<p className="preview__username">
-					<a href={null} target="_blank">{user.login}</a>
+					<a href={null} target="_blank">
+						{user.login}
+					</a>
 				</p>
 				<CloseButton onClose={onPreviewClose} />
 			</div>

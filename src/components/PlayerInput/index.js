@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useContext } from 'react';
+import PropTypes from 'prop-types';
 
-import "./index.scss";
+import ThemeContext from '../../contexts/theme';
+
+import './index.scss';
 
 export default function PlayerInput({ label, onSubmit }) {
-	const [playerInput, setPlayerInput] = useState("");
+	const [playerInput, setPlayerInput] = useState('');
+	const { theme } = useContext(ThemeContext);
 
 	function handleFormSubmit(event) {
 		event.preventDefault();
@@ -18,6 +21,7 @@ export default function PlayerInput({ label, onSubmit }) {
 			</label>
 			<div className="player__input">
 				<input
+					className={`player__input--${theme}`}
 					type="text"
 					value={playerInput}
 					name={label}
@@ -29,7 +33,7 @@ export default function PlayerInput({ label, onSubmit }) {
 					onChange={event => setPlayerInput(event.target.value.trim())}
 				/>
 				<button
-					className="btn btn--primary"
+					className={`btn btn--secondary btn--${theme}`}
 					type="submit"
 					disabled={!playerInput}
 				>

@@ -1,12 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 
-import "./index.scss";
+import ThemeContext from '../../../contexts/theme';
 
-export default function Button({ onClick, children }) {
+import './index.scss';
+
+export default function Button({ onClick, children, className }) {
+	const { theme } = useContext(ThemeContext);
+
 	return (
 		<div className="battle__btn">
-			<button className="btn btn--secondary" onClick={onClick}>
+			<button className={`btn ${className} btn--${theme}`} onClick={onClick}>
 				{children}
 			</button>
 		</div>
@@ -15,4 +19,5 @@ export default function Button({ onClick, children }) {
 
 Button.propTypes = {
 	onClick: PropTypes.func.isRequired,
+	className: PropTypes.string,
 };

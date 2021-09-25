@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 
 import ThemeContext from '../../contexts/theme';
 
+import Button from '../UI/Button';
+
 import './index.scss';
 
 export default function Navbar() {
@@ -10,9 +12,9 @@ export default function Navbar() {
 	return (
 		<nav className="nav">
 			{/* Navigation Links */}
-			<button className="btn btn--dark btn" onClick={toggleTheme}>
+			<Button className="btn--primary" onClick={toggleTheme}>
 				{theme === 'light' ? '🌙' : '🌕'}
-			</button>
+			</Button>
 		</nav>
 	);
 }
