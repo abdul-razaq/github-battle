@@ -47,25 +47,18 @@ html {
 body {
 	font-size: 1.8rem;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-	height: 100%;
-	width: 100%;
-	// background-color: orangered;
-}
-
-#app {
-	height: 100%;
 }
 
 .light {
 	color: var(--text-color-light);
 	background-color: #fff;
-	min-height: 100%;
-	min-width: 100%;
+	min-width: 100vw;
+	min-height: 100vh;
 }
 
 .dark {
 	color: var(--text-color-dark);
 	background-color: var(--dark-background-primary);
-	min-height: 100%;
-	min-width: 100%;
+	min-width: 100vw;
+	min-height: 100vh;
 }
